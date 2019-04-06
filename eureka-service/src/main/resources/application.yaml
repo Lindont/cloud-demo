@@ -1,0 +1,21 @@
+server:
+  port: 8761
+
+spring:
+  application:
+    name: eureka-server
+
+eureka:
+  datacenter: cloud
+  environment: product
+  instance:
+    hostname: localhost
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+  client:
+    registerWithEureka: false # 设置该服务不会向 Eureka Server 注册自己的信息
+    fetchRegistry: false      # 设置该服务不会向 Eureka Server 获取注册信息
+    serviceUrl:
+      defaultZone: http://${eureka.instance.hostname}:${server.port}/eureka/
+# Eureka的自我保护模式，默认开启，开发环境可以关闭
+#  server:
+#    enable-self-preservation: false
