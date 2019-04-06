@@ -9,7 +9,7 @@
     <description>cloud-demo</description>
 
     <modules>
-        <module>eureka-service</module>
+        <module>eureka-server</module>
     </modules>
 
     <properties>
